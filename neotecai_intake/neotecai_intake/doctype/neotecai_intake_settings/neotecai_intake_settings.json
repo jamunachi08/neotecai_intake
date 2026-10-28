@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "creation": "2026-10-28 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "section_server",
+  "base_url",
+  "api_key",
+  "vision_model",
+  "column_break_srv",
+  "timeout",
+  "disable_thinking",
+  "use_json_schema",
+  "max_pages",
+  "image_max_side",
+  "section_behaviour",
+  "auto_extract",
+  "post_on_invoice_date",
+  "auto_create_supplier",
+  "column_break_beh",
+  "default_create_as",
+  "default_item",
+  "default_vat_rate",
+  "amount_tolerance",
+  "section_email",
+  "intake_email_account",
+  "email_company",
+  "section_accounts",
+  "company_accounts",
+  "section_categories",
+  "categories"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "section_server",
+   "fieldtype": "Section Break",
+   "label": "LocalAI Server"
+  },
+  {
+   "default": "http://localhost:8080",
+   "description": "LocalAI address as seen from the Frappe server, e.g. http://10.0.0.20:8080",
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+  {
+   "default": "qwen3.6-35b-a3b",
+   "description": "Model name exactly as installed in LocalAI (must support images)",
+   "fieldname": "vision_model",
+   "fieldtype": "Data",
+   "label": "Vision Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_srv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "300",
+   "fieldname": "timeout",
+   "fieldtype": "Int",
+   "label": "Request Timeout (seconds)"
+  },
+  {
+   "default": "1",
+   "description": "Sends reasoning_effort=none so reasoning models answer directly",
+   "fieldname": "disable_thinking",
+   "fieldtype": "Check",
+   "label": "Disable Thinking (faster)"
+  },
+  {
+   "default": "1",
+   "fieldname": "use_json_schema",
+   "fieldtype": "Check",
+   "label": "Constrain Output with JSON Schema"
+  },
+  {
+   "default": "3",
+   "fieldname": "max_pages",
+   "fieldtype": "Int",
+   "label": "Max PDF Pages to Read"
+  },
+  {
+   "default": "1600",
+   "fieldname": "image_max_side",
+   "fieldtype": "Int",
+   "label": "Image Max Side (px)"
+  },
+  {
+   "fieldname": "section_behaviour",
+   "fieldtype": "Section Break",
+   "label": "Behaviour"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_extract",
+   "fieldtype": "Check",
+   "label": "Extract Automatically on Upload"
+  },
+  {
+   "default": "1",
+   "fieldname": "post_on_invoice_date",
+   "fieldtype": "Check",
+   "label": "Use Invoice Date as Posting Date"
+  },
+  {
+   "default": "0",
+   "description": "Otherwise unknown suppliers must be picked by the reviewer",
+   "fieldname": "auto_create_supplier",
+   "fieldtype": "Check",
+   "label": "Auto-create Unknown Suppliers"
+  },
+  {
+   "fieldname": "column_break_beh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Purchase Invoice",
+   "fieldname": "default_create_as",
+   "fieldtype": "Select",
+   "label": "Default Target",
+   "options": "Purchase Invoice\nExpense Claim"
+  },
+  {
+   "description": "Non-stock item used when a line has no category item",
+   "fieldname": "default_item",
+   "fieldtype": "Link",
+   "label": "Fallback Item",
+   "options": "Item"
+  },
+  {
+   "default": "15",
+   "fieldname": "default_vat_rate",
+   "fieldtype": "Percent",
+   "label": "Standard VAT Rate"
+  },
+  {
+   "default": "0.05",
+   "fieldname": "amount_tolerance",
+   "fieldtype": "Currency",
+   "label": "Rounding Tolerance"
+  },
+  {
+   "fieldname": "section_email",
+   "fieldtype": "Section Break",
+   "label": "Email Inbox (optional)"
+  },
+  {
+   "description": "PDF/image attachments received on this account become intake documents",
+   "fieldname": "intake_email_account",
+   "fieldtype": "Link",
+   "label": "Intake Email Account",
+   "options": "Email Account"
+  },
+  {
+   "fieldname": "email_company",
+   "fieldtype": "Link",
+   "label": "Company for Emailed Documents",
+   "options": "Company"
+  },
+  {
+   "fieldname": "section_accounts",
+   "fieldtype": "Section Break",
+   "label": "Company Accounts"
+  },
+  {
+   "fieldname": "company_accounts",
+   "fieldtype": "Table",
+   "label": "Company Accounts",
+   "options": "NeotecAI Intake Company Account"
+  },
+  {
+   "fieldname": "section_categories",
+   "fieldtype": "Section Break",
+   "label": "Expense Categories"
+  },
+  {
+   "fieldname": "categories",
+   "fieldtype": "Table",
+   "label": "Categories",
+   "options": "NeotecAI Intake Category"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-28 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NeotecAI Intake",
+ "name": "NeotecAI Intake Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Accounts Manager",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

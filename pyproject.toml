@@ -1,0 +1,19 @@
+[project]
+name = "neotecai_intake"
+authors = [{ name = "Neotec", email = "admin@example.com" }]
+description = "AI document intake for ERPNext: supplier invoices and receipts -> draft Purchase Invoice / Expense Claim / Payment Entry, using a self-hosted LocalAI server"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "pypdfium2>=4.30",
+    "zxing-cpp>=2.2",
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<17.0.0"
+erpnext = ">=15.0.0,<17.0.0"
